@@ -13,7 +13,7 @@
 
 TemptAItion is an AI-powered culinary assistant that transforms random ingredients into delicious recipes. No more staring at your pantry wondering what to cook!
 
-### 🚀 [Live Demo](https://recipe-generator-ashy.vercel.app/)
+### 🚀 [Live Demo - Launch website](https://recipe-generator-ashy.vercel.app/)
 
 ## ⭐ Features
 
