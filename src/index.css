@@ -5,31 +5,30 @@
 }
 
 :root {
-  /* Warm Kitchen Color Palette */
-  --bg-primary: #f8f3e9; /* Warm cream background */
-  --bg-secondary: #ffffff; /* Clean white for content */
-  --bg-tertiary: #fcf8f2; /* Soft eggshell for accents */
+  --bg-primary: #f8f3e9;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #fcf8f2;
   
-  --text-primary: #2c2116; /* Rich espresso for main text */
-  --text-secondary: #5c4d41; /* Cinnamon for secondary text */
-  --text-muted: #8a7968; /* Soft mocha for placeholders */
+  --text-primary: #2c2116;
+  --text-secondary: #5c4d41;
+  --text-muted: #8a7968;
    
-  --accent: #d94e33; /* Paprika red accent */
-  --accent-hover: #b23a23; /* Deeper paprika for hover */
-  --accent-light: #f5b59e; /* Soft coral */
+  --accent: #d94e33;
+  --accent-hover: #b23a23;
+  --accent-light: #f5b59e;
   --accent-glow: rgba(217, 78, 51, 0.15);
   
-  --secondary-accent: #478559; /* Fresh basil green */
-  --secondary-accent-hover: #3a6e48; /* Deeper basil */
-  --secondary-accent-light: #a3c9ae; /* Soft sage */
+  --secondary-accent: #478559;
+  --secondary-accent-hover: #3a6e48;
+  --secondary-accent-light: #a3c9ae;
   --secondary-accent-glow: rgba(71, 133, 89, 0.15);
   
-  --highlight: #f7c054; /* Golden honey */
-  --highlight-hover: #e4a932; /* Amber honey */
+  --highlight: #f7c054;
+  --highlight-hover: #e4a932;
   --highlight-glow: rgba(247, 192, 84, 0.15);
   
-  --border: #e9ded0; /* Soft flour-dusted edge */
-  --border-hover: #d5c7b6; /* Toasted edge */
+  --border: #e9ded0;
+  --border-hover: #d5c7b6;
   
   --radius-sm: 4px;
   --radius: 8px;
@@ -529,7 +528,6 @@ main {
   color: var(--text-primary);
 }
 
-/* Enhanced Welcome Section with Food Theme */
 .welcome-section {
   text-align: center;
   margin-bottom: 2rem;

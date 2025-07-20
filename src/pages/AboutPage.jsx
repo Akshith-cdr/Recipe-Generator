@@ -9,7 +9,6 @@ function AboutPage() {
 
   const handleSubmitReview = (e) => {
     e.preventDefault();
-    // Here you would typically send the review to your backend
     console.log("Review submitted:", {
       reviewName,
       reviewEmail,
@@ -17,12 +16,10 @@ function AboutPage() {
     });
     setReviewSubmitted(true);
 
-    // Reset form
     setReviewName("");
     setReviewEmail("");
     setReviewMessage("");
 
-    // Reset submitted state after 3 seconds
     setTimeout(() => setReviewSubmitted(false), 3000);
   };
 

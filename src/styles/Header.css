@@ -1,8 +1,7 @@
-/* Mobile Menu Styles */
 .mobile-menu {
   position: fixed;
-  top: 70px; /* Adjust based on your header height */
-  right: -300px; /* Start off-screen */
+  top: 70px; 
+  right: -300px;
   width: 280px;
   height: calc(100vh - 70px);
   background: rgba(255, 255, 255, 0.95);
@@ -44,7 +43,6 @@
   transform: translateX(5px);
 }
 
-/* Menu Button Animation */
 .menu-btn {
   position: relative;
   transition: all 0.3s ease;
@@ -54,7 +52,6 @@
   transform: rotate(90deg);
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
   .hidden-on-mobile {
     display: none;
@@ -71,7 +68,6 @@
   }
 }
 
-/* Overlay for when menu is open */
 body::after {
   content: "";
   position: fixed;
