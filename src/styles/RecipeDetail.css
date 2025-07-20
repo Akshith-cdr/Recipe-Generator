@@ -1,0 +1,83 @@
+.recipe-detail-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 24px 60px;
+}
+
+.back-button {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.back-button:hover {
+  color: var(--accent);
+  transform: translateX(-3px);
+}
+
+.recipe-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: center;
+}
+
+.cuisine-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.recipe-header-content h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.recipe-description {
+  color: var(--text-secondary);
+  font-size: 18px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.recipe-image {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.recipe-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.recipe-content {
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .recipe-header {
+    grid-template-columns: 1fr;
+  }
+}
