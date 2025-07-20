@@ -8,7 +8,7 @@
 ## ✨ Turn Ingredients into Culinary Magic
 
 <p align="center">
-  <img src="./assets/dashboard-screenshot.png" alt="TemptAItion Dashboard" width="600">
+  <img src="./src/assets/dashboard-screenshot.png" alt="TemptAItion Dashboard" width="600">
 </p>
 
 TemptAItion is an AI-powered culinary assistant that transforms random ingredients into delicious recipes. No more staring at your pantry wondering what to cook!
