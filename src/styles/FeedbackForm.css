@@ -1,0 +1,383 @@
+.feedback-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.feedback-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.feedback-header h2 {
+  color: #1a1a1a;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #5c4d41 0%, #8b7355 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.feedback-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.feedback-form {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.025em;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.9);
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #d4a574;
+  box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.15);
+  background: #ffffff;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  padding-right: 3rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  appearance: none;
+  font-family: inherit;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  pointer-events: none;
+  font-size: 0.8rem;
+}
+
+.select-wrapper select:focus {
+  outline: none;
+  border-color: #d4a574;
+  box-shadow: 0 0 0 4px rgba(212, 165, 116, 0.15);
+  background: #ffffff;
+}
+
+/* Replace the existing Material-UI Rating styles with this: */
+
+/* Material-UI Rating Styling */
+.rating-stars {
+  color: #d4a574 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.rating-stars .MuiRating-icon {
+  font-size: 2rem !important;
+  margin-right: 8px !important;
+  padding: 0 !important;
+}
+
+.rating-stars .MuiRating-iconFilled {
+  color: #d4a574 !important;
+}
+
+.rating-stars .MuiRating-iconEmpty {
+  color: #e5e7eb !important;
+}
+
+.rating-stars .MuiRating-iconHover {
+  color: #b8956a !important;
+}
+
+.rating-stars .MuiRating-iconActive {
+  color: #c19660 !important;
+}
+
+/* Compact rating section - no wasted space */
+.rating-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0.5rem 0;
+  padding: 0;
+}
+
+.rating-text {
+  color: #6b7280;
+  font-size: 1.2rem;
+  font-weight: 600;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  min-width: auto;
+  text-align: center;
+  white-space: nowrap;
+  border: none;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  justify-content: center;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, #d4a574 0%, #b8956a 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(212, 165, 116, 0.3);
+  font-family: inherit;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212, 165, 116, 0.4);
+  background: linear-gradient(135deg, #c19660 0%, #a6845a 100%);
+}
+
+.btn-primary:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Success Message */
+.feedback-success {
+  text-align: center;
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border: 2px solid #bae6fd;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  border-radius: 50%;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.feedback-success h3 {
+  color: #0f172a;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.feedback-success p {
+  color: #475569;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.btn-secondary {
+  padding: 0.875rem 1.75rem;
+  background: #ffffff;
+  color: #475569;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.btn-secondary:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  transform: translateY(-1px);
+}
+/* Update the responsive sections: */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .feedback-container {
+    margin: 1rem 0.5rem; /* Reduced side margins */
+    padding: 0;
+  }
+  
+  .feedback-header {
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem; /* Add small padding only for text */
+  }
+  
+  .feedback-header h2 {
+    font-size: 2rem;
+  }
+  
+  .feedback-form {
+    padding: 1.5rem 1rem; /* Reduced horizontal padding */
+    border-radius: 16px;
+    margin: 0; /* Remove any margins */
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .rating-section {
+    flex-direction: column;
+    align-items: center; /* Center on mobile */
+    gap: 0.75rem;
+  }
+  
+  .rating-text {
+    min-width: auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-container {
+    margin: 0.5rem 0.25rem; /* Minimal side margins */
+  }
+  
+  .feedback-header {
+    padding: 0 0.25rem;
+  }
+  
+  .feedback-form {
+    padding: 1.25rem 0.75rem; /* Even less horizontal padding */
+    border-radius: 12px;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .feedback-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  /* Make inputs use full width better */
+  .form-group input,
+  .form-group textarea,
+  .select-wrapper select {
+    padding: 0.875rem 1rem; /* Slightly reduced padding */
+  }
+  
+  /* Make rating stars smaller on very small screens */
+  .rating-stars .MuiRating-icon {
+    font-size: 1.75rem !important;
+    margin-right: 4px !important;
+  }
+  
+  .rating-text {
+    font-size: 1rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .feedback-container {
+    margin: 0.25rem 0.125rem; /* Almost no side margins */
+  }
+  
+  .feedback-form {
+    padding: 1rem 0.5rem; /* Minimal horizontal padding */
+  }
+  
+  .feedback-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .select-wrapper select {
+    padding: 0.75rem 0.875rem;
+  }
+}
