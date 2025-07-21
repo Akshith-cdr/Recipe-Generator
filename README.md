@@ -70,5 +70,3 @@ Created with ❤️ by [Akshith](https://github.com/Akshith-cdr)
 <p align="center">
   <i>If you found this project helpful, please consider giving it a star! ⭐</i>
 </p>
-
-Similar code found with 2 license types
