@@ -11,6 +11,14 @@ function HomePage() {
 
   async function getRecipe() {
     setLoading(true);
+
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth",
+      });
+    }, 300);
+
     try {
       const recipeMarkdown = await getRecipeFromGemini(ingredients);
       setRecipe(recipeMarkdown);

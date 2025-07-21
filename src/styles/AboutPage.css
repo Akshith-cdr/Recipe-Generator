@@ -1,4 +1,4 @@
-*{
+* {
   scroll-behavior: smooth;
 }
 
@@ -137,16 +137,6 @@
   font-weight: 600;
 }
 
-@media (max-width: 768px) {
-  .about-content {
-    grid-template-columns: 1fr;
-  }
-
-  .review-section {
-    padding: 30px 20px;
-  }
-}
-
 .about-page {
   max-width: 100%;
   overflow-x: hidden;
@@ -244,7 +234,6 @@
 }
 
 .globe-icon {
-  color: #2c3e50;
   animation: rotate 10s linear infinite;
 }
 
@@ -258,7 +247,6 @@
 }
 
 .seedling-icon {
-  color: #27ae60;
   animation: grow 3s ease-in-out infinite alternate;
 }
 
@@ -291,7 +279,6 @@
   }
 }
 
-/* Ingredients showcase */
 .ingredients-showcase {
   background-color: #f8f8f8;
   padding: 60px 20px;
@@ -502,19 +489,156 @@
 }
 
 @media (max-width: 768px) {
+  .about-page {
+    padding: 16px 8px 30px;
+  }
+
+  .about-hero {
+    height: clamp(300px, 50vh, 400px);
+    background-attachment: scroll;
+  }
+
+  .hero-overlay {
+    padding: 0 12px;
+  }
+
   .page-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 8vw, 2.5rem);
   }
 
   .hero-tagline {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-section {
+    margin-bottom: 40px;
+  }
+
+  .culinary-journey {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 8px;
+  }
+
+  .journey-card {
+    width: 100%;
+    max-width: 400px;
+    min-width: auto;
+    padding: 24px 20px;
+  }
+
+  .ingredients-showcase {
+    padding: 40px 8px;
+  }
+
+  .ingredients-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .ingredient-item {
+    height: 140px;
+  }
+
+  .chef-philosophy {
+    padding: 60px 12px;
+    background-attachment: scroll;
+    border-radius: 20px;
+  }
+
+  .philosophy-content {
+    padding: 0 8px;
+  }
+
+  .philosophy-content blockquote {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+  }
+
+  .our-kitchen {
+    padding: 0 8px;
+    flex-direction: column;
   }
 
   .kitchen-images {
     grid-template-rows: 150px 150px;
+    gap: 10px;
   }
 
-  .philosophy-content blockquote {
-    font-size: 1.2rem;
+  .kitchen-text {
+    min-width: auto;
+  }
+
+  .review-section {
+    padding: 30px 12px;
+    margin: 0 8px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+
+  .submit-button {
+    width: 100%;
+    margin: 16px 0 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 12px 6px 20px;
+  }
+
+  .hero-overlay {
+    padding: 0 8px;
+  }
+
+  .culinary-journey {
+    padding: 16px 6px;
+  }
+
+  .journey-card {
+    padding: 20px 16px;
+    max-width: none;
+  }
+
+  .ingredients-showcase {
+    padding: 30px 6px;
+  }
+
+  .ingredients-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .ingredient-item {
+    height: 120px;
+  }
+
+  .chef-philosophy {
+    padding: 40px 8px;
+    border-radius: 16px;
+  }
+
+  .our-kitchen {
+    padding: 0 6px;
+  }
+
+  .kitchen-images {
+    grid-template-rows: 120px 120px;
+    gap: 8px;
+  }
+
+  .review-section {
+    padding: 24px 8px;
+    margin: 0 6px;
   }
 }

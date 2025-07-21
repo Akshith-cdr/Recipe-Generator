@@ -1,5 +1,6 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Header from "./Header.jsx";
 import HomePage from "./pages/HomePage";
 import RecipesPage from "./pages/RecipesPage";
@@ -7,6 +8,25 @@ import RecipeDetail from "./pages/RecipeDetail";
 import AboutPage from "./pages/AboutPage";
 import DotGrid from "./background/DotGrid";
 import { Analytics } from "@vercel/analytics/react";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const isRecipeDetail = pathname.startsWith("/recipes/");
+    const previousPath = sessionStorage.getItem("previousPath");
+
+    if (isRecipeDetail && previousPath === "/recipes") {
+      return;
+    }
+
+    window.scrollTo(0, 0);
+
+    sessionStorage.setItem("previousPath", pathname);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
@@ -25,6 +45,7 @@ function App() {
         />
       </div>
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/recipes" element={<RecipesPage />} />

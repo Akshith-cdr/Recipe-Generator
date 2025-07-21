@@ -1,9 +1,10 @@
 import React from "react";
 import FeedbackForm from "../components/FeedbackForm";
 import "../styles/AboutPage.css";
+import seedlingIcon from "../assets/seedling.svg";
+import globeIcon from "../assets/globe.svg";
 
 function AboutPage() {
-  
   return (
     <main className="about-page">
       <section className="about-hero">
@@ -16,21 +17,13 @@ function AboutPage() {
       <section className="culinary-journey">
         <div className="journey-card">
           <div className="card-icon">
-            <svg
+            <img
+              src={seedlingIcon}
+              alt="Seedling Icon"
               className="seedling-icon"
-              viewBox="0 0 24 24"
               width="48"
               height="48"
-            >
-              <path
-                fill="currentColor"
-                d="M12 6.5c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 7c3.31 0 6-2.69 6-6 0-2.97-2.17-5.43-5-5.91V1c0-.55-.45-1-1-1S11 .45 11 1v.59c-2.83.48-5 2.94-5 5.91 0 3.31 2.69 6 6 6z"
-              />
-              <path
-                fill="currentColor"
-                d="M13 15.9V19h5v2H6v-2h5v-3.1c-6-1.1-6-9.9 0-11 1.33-1 3.67-1 5 0 6 1.1 6 9.9 0 11z"
-              />
-            </svg>
+            />
           </div>
           <h2>From Garden to Table</h2>
           <p>
@@ -62,17 +55,13 @@ function AboutPage() {
 
         <div className="journey-card">
           <div className="card-icon">
-            <svg
+            <img
+              src={globeIcon}
+              alt="Globe Icon"
               className="globe-icon"
-              viewBox="0 0 24 24"
               width="48"
               height="48"
-            >
-              <path
-                fill="currentColor"
-                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
-              />
-            </svg>
+            />
           </div>
           <h2>Global Flavors, Local Heart</h2>
           <p>
