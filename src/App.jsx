@@ -7,7 +7,6 @@ import RecipeDetail from "./pages/RecipeDetail";
 import AboutPage from "./pages/AboutPage";
 import DotGrid from "./background/DotGrid";
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   return (
@@ -33,7 +32,6 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
       </Routes>
       <Analytics />
-      <SpeedInsights />
     </div>
   );
 }
