@@ -8,9 +8,15 @@ function HomePage() {
   const [ingredients, setIngredients] = React.useState([]);
   const [recipe, setRecipe] = React.useState("");
   const [loading, setLoading] = React.useState(false);
+  const [recipeHistory, setRecipeHistory] = React.useState([]); // Track recipe versions
 
-  async function getRecipe() {
+  async function getRecipe(isRegeneration = false) {
     setLoading(true);
+
+    // If it's a regeneration, store the current recipe in history
+    if (isRegeneration && recipe) {
+      setRecipeHistory((prev) => [...prev, recipe]);
+    }
 
     setTimeout(() => {
       window.scrollTo({
@@ -24,9 +30,18 @@ function HomePage() {
       setRecipe(recipeMarkdown);
     } catch (error) {
       console.error("Error generating recipe:", error);
+      // Show error message to user
+      setRecipe(
+        "Sorry, there was an error generating your recipe. Please try again."
+      );
     } finally {
       setLoading(false);
     }
+  }
+
+  // New function specifically for regenerating
+  async function regenerateRecipe() {
+    await getRecipe(true); // Pass true to indicate this is a regeneration
   }
 
   function addIngredient(formData) {
@@ -34,6 +49,13 @@ function HomePage() {
     if (newIngredient.trim()) {
       setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
     }
+  }
+
+  // Clear everything when starting fresh
+  function clearAll() {
+    setIngredients([]);
+    setRecipe("");
+    setRecipeHistory([]);
   }
 
   return (
@@ -73,7 +95,11 @@ function HomePage() {
       </form>
 
       {ingredients.length > 0 ? (
-        <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
+        <IngredientsList
+          ingredients={ingredients}
+          getRecipe={() => getRecipe(false)}
+          clearAll={clearAll}
+        />
       ) : (
         <div className="empty-ingredients-guide">
           <div className="empty-state-illustration">
@@ -117,7 +143,12 @@ function HomePage() {
       )}
 
       {(loading || recipe) && (
-        <ClaudeRecipe recipe={recipe} loading={loading} />
+        <ClaudeRecipe
+          recipe={recipe}
+          loading={loading}
+          onRegenerate={regenerateRecipe}
+          canRegenerate={!loading && recipe && ingredients.length >= 4}
+        />
       )}
     </main>
   );

@@ -1275,6 +1275,85 @@ main {
   letter-spacing: 1px;
 }
 
+.recipe-footer-actions {
+  margin-top: 32px;
+  padding: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(217, 78, 51, 0.05),
+    rgba(247, 192, 84, 0.05)
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.regenerate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--accent);
+  border: none;
+  color: white;
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(217, 78, 51, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.regenerate-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.regenerate-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(217, 78, 51, 0.3);
+}
+
+.regenerate-btn:hover::before {
+  left: 100%;
+}
+
+.regenerate-btn:active {
+  transform: translateY(-1px);
+}
+
+.regenerate-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.regenerate-btn:hover svg {
+  transform: rotate(180deg);
+}
+
+.regenerate-help-text {
+  margin-top: 12px;
+  margin-bottom: 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
 footer {
   background: var(--bg-tertiary);
   border-top: 1px solid var(--border);
@@ -1543,7 +1622,7 @@ footer {
     right: 16px;
     background-size: 24px 24px;
   }
-  
+
   .suggested-recipe-container {
     padding: 32px 16px 24px;
     margin: 0 8px;
@@ -1578,6 +1657,22 @@ footer {
 
   .recipe-info-card .label {
     font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+  }
+
+  .recipe-footer-actions {
+    margin-top: 24px;
+    padding: 20px 16px;
+  }
+
+  .regenerate-btn {
+    font-size: 15px;
+    padding: 12px 20px;
+    gap: 8px;
+  }
+
+  .regenerate-help-text {
+    font-size: 13px;
+    margin-top: 10px;
   }
 
   .welcome-section {
@@ -1727,12 +1822,12 @@ footer {
     right: 12px;
     background-size: 20px 20px;
   }
-  
+
   .suggested-recipe-container {
     padding: 28px 12px 20px;
     margin: 0 6px;
   }
-  
+
   .suggested-recipe-container h1 {
     margin-top: 4px;
   }
@@ -1764,6 +1859,27 @@ footer {
   .recipe-info {
     grid-template-columns: 1fr;
   }
+
+  .recipe-footer-actions {
+    margin-top: 20px;
+    padding: 16px 12px;
+  }
+
+  .regenerate-btn {
+    font-size: 14px;
+    padding: 10px 16px;
+    width: 100%;
+  }
+
+  .regenerate-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .regenerate-help-text {
+    font-size: 12px;
+    margin-top: 8px;
+  }
 }
 
 @keyframes fadeIn {
@@ -1779,11 +1895,11 @@ footer {
   .suggested-recipe-container::before {
     display: none;
   }
-  
+
   .suggested-recipe-container {
     padding: 20px 12px;
   }
-  
+
   .suggested-recipe-container h1 {
     margin-top: 0;
   }

@@ -8,7 +8,6 @@ function Header() {
   const menuRef = useRef(null);
   const menuButtonRef = useRef(null);
 
-  // Handle clicks outside the menu
   useEffect(() => {
     function handleClickOutside(event) {
       if (
@@ -44,7 +43,6 @@ function Header() {
           />
         </NavLink>
 
-        {/* Desktop Navigation */}
         <nav className="nav-links">
           <NavLink
             to="/"
@@ -73,7 +71,6 @@ function Header() {
         </nav>
 
         <div className="nav-actions">
-          {/* Search button removed */}
           <button
             ref={menuButtonRef}
             onClick={toggleMobileMenu}
@@ -110,7 +107,6 @@ function Header() {
         </div>
       </div>
 
-      {/* Rest of the Header component remains unchanged */}
       {mobileMenuOpen && (
         <div
           ref={menuRef}
@@ -181,7 +177,6 @@ function Header() {
         </div>
       )}
 
-      {/* Overlay */}
       {mobileMenuOpen && (
         <div
           onClick={() => setMobileMenuOpen(false)}
