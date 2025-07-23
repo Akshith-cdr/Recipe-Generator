@@ -1,0 +1,199 @@
+.saved-recipe-detail-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+}
+
+.saved-recipe-detail-card {
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(247, 201, 166, 0.13);
+  padding: 40px 32px;
+  margin-bottom: 40px;
+}
+
+.saved-recipe-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.saved-recipe-badge {
+  display: inline-block;
+  background: #f76c3c;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 4px 16px;
+  margin-bottom: 18px;
+  letter-spacing: 0.05em;
+}
+
+.saved-recipe-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3d2c18;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.saved-recipe-date {
+  color: #a08c6b;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+.saved-recipe-info {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.saved-recipe-info-card {
+  background: rgba(255, 236, 217, 0.7);
+  border: 1.5px solid #f7c9a6;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(247, 201, 166, 0.13);
+  padding: 20px 32px;
+  text-align: center;
+  min-width: 140px;
+}
+
+.saved-recipe-info-card .value {
+  color: #f76c3c;
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: block;
+}
+
+.saved-recipe-info-card .label {
+  color: #7c6f60;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.saved-recipe-content {
+  margin-top: 40px;
+}
+
+.saved-recipe-section {
+  background: #fdf6ef;
+  border-radius: 25px;
+  padding: 32px 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(247, 201, 166, 0.07);
+}
+
+.saved-recipe-section h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #3d2c18;
+  margin-bottom: 18px;
+  text-align: center;
+  position: relative;
+}
+
+.saved-recipe-section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #f7c9a6;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.saved-recipe-ingredients-list {
+  list-style: disc inside;
+  padding-left: 0;
+  margin: 0;
+}
+
+.saved-recipe-ingredients-list li {
+  font-size: 1.1rem;
+  color: #5a4a36;
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.saved-recipe-instructions {
+  font-size: 1.1rem;
+  color: #4a3a24;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .saved-recipe-detail-page {
+    padding: 0 0 24px 0;
+  }
+
+  .saved-recipe-detail-card {
+    padding: 10px 2px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+  }
+
+  .saved-recipe-detail-card,
+  .saved-recipe-section {
+    max-width: 92vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .saved-recipe-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .saved-recipe-info-card {
+    min-width: 50vw;
+    max-width: 80vw;
+    padding: 14px 8px;
+  }
+
+  .saved-recipe-section {
+    padding: 10px 2px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+  }
+
+  .saved-recipe-title {
+    font-size: 1.5rem;
+  }
+
+  .saved-recipe-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .saved-recipe-ingredients-list li,
+  .saved-recipe-instructions {
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  .saved-recipe-section ul,
+  .saved-recipe-section ol {
+    list-style-position: inside;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .saved-recipe-date {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .saved-recipe-info-card .value {
+    font-size: 1.1rem;
+  }
+
+  .saved-recipe-info-card .label {
+    font-size: 0.95rem;
+  }
+}

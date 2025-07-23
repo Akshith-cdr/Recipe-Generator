@@ -25,7 +25,6 @@ function RecipeDetail() {
   }, [id, navigate]);
 
   const handleBackToRecipes = () => {
-    // Use the browser's back functionality to preserve scroll position
     navigate(-1);
   };
 
@@ -45,7 +44,7 @@ function RecipeDetail() {
       <button className="back-button" onClick={handleBackToRecipes}>
         &larr; Back to Recipes
       </button>
-
+    
       <div className="recipe-header">
         <div className="recipe-header-content">
           <span className="cuisine-badge">{recipe.cuisine}</span>

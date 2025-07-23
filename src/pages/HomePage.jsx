@@ -8,12 +8,11 @@ function HomePage() {
   const [ingredients, setIngredients] = React.useState([]);
   const [recipe, setRecipe] = React.useState("");
   const [loading, setLoading] = React.useState(false);
-  const [recipeHistory, setRecipeHistory] = React.useState([]); // Track recipe versions
+  const [recipeHistory, setRecipeHistory] = React.useState([]);
 
   async function getRecipe(isRegeneration = false) {
     setLoading(true);
 
-    // If it's a regeneration, store the current recipe in history
     if (isRegeneration && recipe) {
       setRecipeHistory((prev) => [...prev, recipe]);
     }
@@ -30,7 +29,6 @@ function HomePage() {
       setRecipe(recipeMarkdown);
     } catch (error) {
       console.error("Error generating recipe:", error);
-      // Show error message to user
       setRecipe(
         "Sorry, there was an error generating your recipe. Please try again."
       );
@@ -39,9 +37,8 @@ function HomePage() {
     }
   }
 
-  // New function specifically for regenerating
   async function regenerateRecipe() {
-    await getRecipe(true); // Pass true to indicate this is a regeneration
+    await getRecipe(true);
   }
 
   function addIngredient(formData) {
@@ -51,7 +48,6 @@ function HomePage() {
     }
   }
 
-  // Clear everything when starting fresh
   function clearAll() {
     setIngredients([]);
     setRecipe("");
@@ -148,6 +144,7 @@ function HomePage() {
           loading={loading}
           onRegenerate={regenerateRecipe}
           canRegenerate={!loading && recipe && ingredients.length >= 4}
+          ingredients={ingredients}
         />
       )}
     </main>

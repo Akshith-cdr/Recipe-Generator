@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import { useAuth } from "./contexts/AuthContext";
 import temptationLogo from "./assets/temptation-logo.png";
-import "./styles/Header.css";
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, signOut } = useAuth();
   const menuRef = useRef(null);
   const menuButtonRef = useRef(null);
 
@@ -28,8 +29,12 @@ function Header() {
   }, [mobileMenuOpen]);
 
   const toggleMobileMenu = () => {
-    console.log("Toggling menu. Current state:", mobileMenuOpen);
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    setMobileMenuOpen(false);
   };
 
   return (
@@ -68,21 +73,43 @@ function Header() {
           >
             About
           </NavLink>
+          {user && (
+            <NavLink
+              to="/profile"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              Profile
+            </NavLink>
+          )}
         </nav>
 
         <div className="nav-actions">
+          {user ? (
+            <div className="user-menu">
+              <span className="user-greeting">
+                Hi, {user.user_metadata?.name || user.email}!
+              </span>
+              <button onClick={handleSignOut} className="auth-btn sign-out">
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <div className="auth-buttons">
+              <NavLink to="/login" className="auth-btn login">
+                Login
+              </NavLink>
+              <NavLink to="/signup" className="auth-btn signup">
+                Sign Up
+              </NavLink>
+            </div>
+          )}
+
           <button
             ref={menuButtonRef}
             onClick={toggleMobileMenu}
-            style={{
-              background: "transparent",
-              border: "none",
-              cursor: "pointer",
-              padding: "8px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            className={`menu-btn ${mobileMenuOpen ? "active" : ""}`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,10 +121,6 @@ function Header() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              style={{
-                transform: mobileMenuOpen ? "rotate(90deg)" : "none",
-                transition: "transform 0.3s ease",
-              }}
             >
               <line x1="3" y1="12" x2="21" y2="12"></line>
               <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -107,88 +130,81 @@ function Header() {
         </div>
       </div>
 
-      {mobileMenuOpen && (
-        <div
-          ref={menuRef}
-          style={{
-            position: "fixed",
-            top: "70px",
-            right: "0",
-            width: "280px",
-            height: "calc(100vh - 70px)",
-            backgroundColor: "white",
-            boxShadow: "-2px 0 10px rgba(0, 0, 0, 0.1)",
-            zIndex: 1000,
-            padding: "20px",
-            transition: "transform 0.3s ease",
-            transform: mobileMenuOpen ? "translateX(0)" : "translateX(100%)",
-          }}
-        >
-          <nav
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "20px",
-            }}
+      <div
+        ref={menuRef}
+        className={`mobile-menu ${mobileMenuOpen ? "active" : ""}`}
+      >
+        <nav className="mobile-nav">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "mobile-nav-link active" : "mobile-nav-link"
+            }
+            onClick={() => setMobileMenuOpen(false)}
           >
+            Home
+          </NavLink>
+          <NavLink
+            to="/recipes"
+            className={({ isActive }) =>
+              isActive ? "mobile-nav-link active" : "mobile-nav-link"
+            }
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Recipes
+          </NavLink>
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? "mobile-nav-link active" : "mobile-nav-link"
+            }
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            About
+          </NavLink>
+          {user && (
             <NavLink
-              to="/"
+              to="/profile"
+              className={({ isActive }) =>
+                isActive ? "mobile-nav-link active" : "mobile-nav-link"
+              }
               onClick={() => setMobileMenuOpen(false)}
-              style={({ isActive }) => ({
-                color: isActive ? "#d94e33" : "#2c2116",
-                textDecoration: "none",
-                fontSize: "18px",
-                fontWeight: isActive ? "600" : "500",
-                padding: "10px 0",
-                borderBottom: "1px solid #eee",
-              })}
             >
-              Home
+              Profile
             </NavLink>
-            <NavLink
-              to="/recipes"
-              onClick={() => setMobileMenuOpen(false)}
-              style={({ isActive }) => ({
-                color: isActive ? "#d94e33" : "#2c2116",
-                textDecoration: "none",
-                fontSize: "18px",
-                fontWeight: isActive ? "600" : "500",
-                padding: "10px 0",
-                borderBottom: "1px solid #eee",
-              })}
+          )}
+          {user ? (
+            <button
+              onClick={handleSignOut}
+              className="mobile-nav-link sign-out-mobile"
             >
-              Recipes
-            </NavLink>
-            <NavLink
-              to="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              style={({ isActive }) => ({
-                color: isActive ? "#d94e33" : "#2c2116",
-                textDecoration: "none",
-                fontSize: "18px",
-                fontWeight: isActive ? "600" : "500",
-                padding: "10px 0",
-                borderBottom: "1px solid #eee",
-              })}
-            >
-              About
-            </NavLink>
-          </nav>
-        </div>
-      )}
+              Sign Out
+            </button>
+          ) : (
+            <>
+              <NavLink
+                to="/login"
+                className="mobile-nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Login
+              </NavLink>
+              <NavLink
+                to="/signup"
+                className="mobile-nav-link"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Sign Up
+              </NavLink>
+            </>
+          )}
+        </nav>
+      </div>
 
       {mobileMenuOpen && (
         <div
+          className={`mobile-menu-overlay ${mobileMenuOpen ? "active" : ""}`}
           onClick={() => setMobileMenuOpen(false)}
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            zIndex: 999,
-          }}
         />
       )}
     </header>
