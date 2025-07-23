@@ -781,13 +781,12 @@ main {
 .welcome-icon {
   width: 80px;
   height: 80px;
-  background-color: var(--accent);
   border-radius: 50%;
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
-  color: white;
   box-shadow: 0 6px 15px rgba(217, 78, 51, 0.2);
   animation: pulse 2s infinite;
 }
