@@ -3,6 +3,7 @@ import IngredientsList from "../components/IngredientsList";
 import ClaudeRecipe from "../components/ClaudeRecipe";
 import getRecipeFromGemini from "../ai.js";
 import { Link } from "react-router-dom";
+import spoonAndKnife from "../assets/spoon_and_knife.svg";
 
 function HomePage() {
   const [ingredients, setIngredients] = React.useState([]);
@@ -60,7 +61,7 @@ function HomePage() {
         <div className="welcome-content">
           <div className="welcome-icon">
             <img
-              src="/src/assets/spoon_and_knife.svg"
+              src={spoonAndKnife}
               alt="Spoon and Knife"
               width={80}
               height={80}

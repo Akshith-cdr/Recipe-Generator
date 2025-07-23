@@ -2,6 +2,7 @@ import React from "react";
 import FeedbackForm from "../components/FeedbackForm";
 import "../styles/AboutPage.css";
 import seedlingIcon from "../assets/seedling.svg";
+import spoonAndKnife from "../assets/spoon_and_knife.svg";
 import globeIcon from "../assets/globe.svg";
 
 function AboutPage() {
@@ -36,7 +37,7 @@ function AboutPage() {
           <div className="card-icon">
             <img
               className="cooking-icon"
-              src="/src/assets/spoon_and_knife.svg"
+              src={spoonAndKnife}
               alt="Spoon and Knife"
               width={50}
               height={50}
