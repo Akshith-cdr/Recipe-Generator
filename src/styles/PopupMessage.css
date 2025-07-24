@@ -1,0 +1,29 @@
+.popup-message {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  font-size: 1rem;
+  gap: 10px;
+  animation: fadeIn 0.3s;
+  border: 1px solid #eee;
+}
+.popup-message.success {
+  border-color: #22c55e;
+  color: #22c55e;
+}
+.popup-message.error {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px);}
+  to { opacity: 1; transform: translateY(0);}
+}

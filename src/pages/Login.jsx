@@ -1,35 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import PopupMessage from "../components/PopupMessage";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const { signIn } = useAuth();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (success || error) {
+      const timer = setTimeout(() => {
+        setSuccess("");
+        setError("");
+      }, 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [success, error]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setSuccess("");
 
     if (!email || !password) {
-      setError("Please fill in all fields");
+      setError("Please enter both email and password");
       return;
     }
 
     setLoading(true);
-    setError("");
 
     try {
       const { error } = await signIn(email, password);
       if (error) {
         setError(error.message);
+        setSuccess("");
       } else {
-        navigate("/");
+        setSuccess("Successfully logged in!");
+        setError("");
+        setTimeout(() => {
+          navigate("/");
+        }, 1200);
       }
     } catch (err) {
       setError("An unexpected error occurred");
+      setSuccess("");
     } finally {
       setLoading(false);
     }
@@ -41,6 +60,8 @@ function Login() {
 
   return (
     <div className="auth-layout">
+      <PopupMessage type="success" message={success} show={!!success} />
+      <PopupMessage type="error" message={error} show={!!error} />
       <div className="auth-main">
         <div className="auth-container">
           <div className="auth-image-panel">
@@ -70,19 +91,11 @@ function Login() {
           <div className="auth-form-panel">
             <div className="auth-card">
               <div className="auth-header">
-                <h1>Welcome Back</h1>
+                <h1>Sign in to TemptAItion</h1>
                 <p>
-                  Today is a new day. It's your day. You shape it. Sign in to
-                  start managing your projects.
+                  Welcome back! Enter your credentials to access your account.
                 </p>
               </div>
-
-              {error && (
-                <div className="auth-error">
-                  <span className="error-icon">⚠</span>
-                  <span>{error}</span>
-                </div>
-              )}
 
               <form onSubmit={handleSubmit} className="auth-form">
                 <div className="form-group">
@@ -91,11 +104,11 @@ function Login() {
                     <input
                       type="email"
                       id="email"
+                      name="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Example@email.com"
                       disabled={loading}
-                      className={error && !email ? "error" : ""}
                     />
                   </div>
                 </div>
@@ -106,17 +119,12 @@ function Login() {
                     <input
                       type="password"
                       id="password"
+                      name="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      placeholder="At least 8 characters"
+                      placeholder="Your password"
                       disabled={loading}
-                      className={error && !password ? "error" : ""}
                     />
-                  </div>
-                  <div className="forgot-password">
-                    <a href="#" onClick={(e) => e.preventDefault()}>
-                      Forgot Password?
-                    </a>
                   </div>
                 </div>
 
@@ -138,7 +146,7 @@ function Login() {
 
               <div className="auth-footer">
                 <p>
-                  Don't you have an account?
+                  Don't have an account?
                   <Link to="/signup" className="auth-link">
                     Sign up
                   </Link>

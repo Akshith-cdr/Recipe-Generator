@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import PopupMessage from "../components/PopupMessage";
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -11,8 +12,19 @@ function Signup() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const { signUp, signIn } = useAuth();
   const navigate = useNavigate();
+  
+  React.useEffect(() => {
+    if (success || error) {
+      const timer = setTimeout(() => {
+        setSuccess("");
+        setError("");
+      }, 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [success, error]);
 
   const handleChange = (e) => {
     setFormData({
@@ -38,6 +50,9 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setError("");
+    setSuccess("");
+
     if (
       !formData.name ||
       !formData.email ||
@@ -59,7 +74,6 @@ function Signup() {
     }
 
     setLoading(true);
-    setError("");
 
     try {
       const { error: signUpError } = await signUp(
@@ -72,6 +86,7 @@ function Signup() {
 
       if (signUpError) {
         setError(signUpError.message);
+        setSuccess("");
         return;
       }
 
@@ -81,14 +96,22 @@ function Signup() {
       );
 
       if (signInError) {
-        console.error("Auto sign-in failed:", signInError);
+        setError(
+          "Account created, but auto-login failed. Please login manually."
+        );
+        setSuccess("");
         navigate("/login");
         return;
       }
 
-      navigate("/");
+      setSuccess("Account created and logged in successfully!");
+      setError("");
+      setTimeout(() => {
+        navigate("/");
+      }, 1200);
     } catch (err) {
       setError("An unexpected error occurred");
+      setSuccess("");
     } finally {
       setLoading(false);
     }
@@ -100,6 +123,8 @@ function Signup() {
 
   return (
     <div className="auth-layout">
+      <PopupMessage type="success" message={success} show={!!success} />
+      <PopupMessage type="error" message={error} show={!!error} />
       <div className="auth-main">
         <div className="auth-container">
           <div className="auth-image-panel">
@@ -135,13 +160,6 @@ function Signup() {
                   start managing your projects.
                 </p>
               </div>
-
-              {error && (
-                <div className="auth-error">
-                  <span className="error-icon">⚠</span>
-                  <span>{error}</span>
-                </div>
-              )}
 
               <form onSubmit={handleSubmit} className="auth-form">
                 <div className="form-group">
