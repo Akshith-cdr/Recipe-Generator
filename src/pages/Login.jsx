@@ -46,7 +46,7 @@ function Login() {
           navigate("/");
         }, 1200);
       }
-    } catch (err) {
+    } catch (error) {
       setError("An unexpected error occurred");
       setSuccess("");
     } finally {
